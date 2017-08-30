@@ -1,8 +1,17 @@
+/*
+ * Andrew Madrid
+ * CS 3331 - Advanced Object-Oriented Programming
+ * Fall 2017
+ * Purpose:
+ * 	This program allows users to enter a point on the board.  It will then list all of the
+ * 	squares that are edge adjacent, corner adjacent, and squares that are not adjacent.
+ */
 import java.util.Scanner;
 public class Battleship 
 {	
 	public static boolean board[][] = new boolean[9][9];
 	
+	//Used to find and print the squares that are edge adjacent to the given point.
 	public static void edge_Adjacency(int x_coordinate, int y_coordinate)
 	{
 		System.out.println("Squares Edge Adjacenct to (" + x_coordinate + ", " + y_coordinate + "):");
@@ -98,6 +107,7 @@ public class Battleship
 		}
 	}
 	
+	//Used to find and print the squares that are corner adjacent to the given point. 
 	public static void corner_Adjacency(int x_coordinate, int y_coordinate)
 	{
 		System.out.println("Squares Corner Adjacent to (" + x_coordinate + ", " + y_coordinate + "):");
@@ -168,6 +178,7 @@ public class Battleship
 		}
 	}
 	
+	// Prints out all of the squares that are not adjacent to the given point.
 	public static void non_Adjacency(int x_coordinate, int y_coordinate)
 	{
 		System.out.println("Squares Not Adjacent to (" + x_coordinate + ", " + y_coordinate + "):");
