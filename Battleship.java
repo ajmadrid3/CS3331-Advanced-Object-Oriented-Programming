@@ -15,96 +15,21 @@ public class Battleship
 	public static void edge_Adjacency(int x_coordinate, int y_coordinate)
 	{
 		System.out.println("Squares Edge Adjacenct to (" + x_coordinate + ", " + y_coordinate + "):");
-		if(x_coordinate == 0)
-		{
-			if(y_coordinate == 0)
-			{
-				//System.out.println("Corner");
-				board[x_coordinate][y_coordinate+1] = true;
-				board[x_coordinate+1][y_coordinate] = true;
-				System.out.println("(" + x_coordinate + ", " + (y_coordinate+1) + ")");
-				System.out.println("(" + (x_coordinate+1) + ", " + y_coordinate + ")");
-			}
-			else if(y_coordinate == 8)
-			{
-				//System.out.println("Corner");
-				board[x_coordinate][y_coordinate-1] = true;
-				board[x_coordinate+1][y_coordinate] = true;
-				System.out.println("(" + x_coordinate + ", " + (y_coordinate-1) + ")");
-				System.out.println("(" + (x_coordinate+1) + ", " + y_coordinate + ")");
-			}
-			else
-			{
-				//System.out.println("Edge");
-				board[x_coordinate][y_coordinate-1] = true;
-				board[x_coordinate][y_coordinate+1] = true;
-				board[x_coordinate+1][y_coordinate] = true;
-				System.out.println("(" + x_coordinate + ", " + (y_coordinate-1) + ")");
-				System.out.println("(" + x_coordinate + ", " + (y_coordinate+1) + ")");
-				System.out.println("(" + (x_coordinate+1) + ", " + y_coordinate + ")");
-			}
-		}
-		else if(x_coordinate == 8)
-		{
-			if(y_coordinate == 0)
-			{
-				//System.out.println("Corner");
-				board[x_coordinate-1][y_coordinate] = true;
-				board[x_coordinate][y_coordinate+1] = true;
-				System.out.println("(" + (x_coordinate-1) + ", " + y_coordinate + ")");
-				System.out.println("(" + x_coordinate + ", " + (y_coordinate+1) + ")");
-			}
-			else if(y_coordinate == 8)
-			{
-				//System.out.println("Corner");
-				board[x_coordinate-1][y_coordinate] = true;
-				board[x_coordinate][y_coordinate-1] = true;
-				System.out.println("(" + (x_coordinate-1) + ", " + y_coordinate + ")");
-				System.out.println("(" + x_coordinate + ", " + (y_coordinate-1) + ")");
-			}
-			else
-			{
-				//System.out.println("Edge");
-				board[x_coordinate-1][y_coordinate] = true;
-				board[x_coordinate][y_coordinate-1] = true;
-				board[x_coordinate][y_coordinate+1] = true;
-				System.out.println("(" + (x_coordinate-1) + ", " + y_coordinate + ")");
-				System.out.println("(" + x_coordinate + ", " + (y_coordinate-1) + ")");
-				System.out.println("(" + x_coordinate + ", " + (y_coordinate+1) + ")");
-			}
-		}
-		else if(y_coordinate == 0)
-		{
-			//System.out.println("Edge");
-			board[x_coordinate-1][y_coordinate] = true;
-			board[x_coordinate+1][y_coordinate] = true;
-			board[x_coordinate][y_coordinate+1] = true;
-			System.out.println("(" + (x_coordinate-1) + ", " + y_coordinate + ")");
-			System.out.println("(" + x_coordinate + ", " + (y_coordinate+1) + ")");
-			System.out.println("(" + (x_coordinate+1) + ", " + y_coordinate + ")");
-		}
-		else if(y_coordinate == 8)
-		{
-			//System.out.println("Edge");
-			board[x_coordinate-1][y_coordinate] = true;
-			board[x_coordinate+1][y_coordinate] = true;
-			board[x_coordinate][y_coordinate-1] = true;
-			System.out.println("(" + (x_coordinate-1) + ", " + y_coordinate + ")");
-			System.out.println("(" + x_coordinate + ", " + (y_coordinate-1) + ")");
-			System.out.println("(" + (x_coordinate+1) + ", " + y_coordinate + ")");
-		}
-		else
-		{
-			//System.out.println("Center");
-			board[x_coordinate-1][y_coordinate] = true;
-			board[x_coordinate+1][y_coordinate] = true;
-			board[x_coordinate][y_coordinate-1] = true;
-			board[x_coordinate][y_coordinate+1] = true;
-			System.out.println("(" + (x_coordinate-1) + ", " + y_coordinate + ")");
-			System.out.println("(" + x_coordinate + ", " + (y_coordinate-1) + ")");
-			System.out.println("(" + x_coordinate + ", " + (y_coordinate+1) + ")");
-			System.out.println("(" + (x_coordinate+1) + ", " + y_coordinate + ")");
-		}
+		
+		int[] left = {x_coordinate - 1, y_coordinate};
+		int[] right = {x_coordinate + 1, y_coordinate};
+		int[] lower = {x_coordinate, y_coordinate - 1};
+		int[] upper = {x_coordinate, y_coordinate + 1};
+		
+		board[left[0]][left[1]] = true;
+		board[right[0]][right[1]] = true;
+		board[lower[0]][lower[1]] = true;
+		board[upper[0]][upper[1]] = true;
+		
+		System.out.println("(" + left[0] + ", " + left[1] + ")");
+		System.out.println("(" + right[0] + ", " + right[1] + ")");
+		System.out.println("(" + lower[0] + ", " + lower[1] + ")");
+		System.out.println("(" + upper[0] + ", " + upper[1] + ")");
 	}
 	
 	//Used to find and print the squares that are corner adjacent to the given point. 
