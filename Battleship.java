@@ -5,7 +5,9 @@
  * Fall 2017
  * Purpose:
  * 	This program allows users to enter a point on the board.  It will then list all of the
- * 	squares that are edge adjacent, corner adjacent, and squares that are not adjacent.
+ * 	squares that are edge adjacent, corner adjacent, and squares that are not adjacent.  If 
+ *  the incorrect format or values are entered, it will prompt the user to enter it again 
+ *  until they are valid.
  */
 import java.util.Scanner;
 public class Battleship 
@@ -48,6 +50,7 @@ public class Battleship
 				input.toLowerCase();
 				char value = input.charAt(0);
 				
+				// Changes the letter to the correct number value
 				switch (value)
 				{
 					case 'a': coordinates[0] = 0;
@@ -71,12 +74,16 @@ public class Battleship
 					default: System.out.println("ERROR: Invalid Value Entered\n");
 				}
 				
-				if(Character.isDigit(input.charAt(1)))
+				if(Character.isLetter(input.charAt(1)))
+				{
+					System.out.println("ERROR: Invalid Format\n");
+				}
+				else if(Character.isDigit(input.charAt(1)))
 				{
 					coordinates[1] = Character.getNumericValue(input.charAt(1));
 					valid_format = true;
 				}
-				else if(Character.isDigit(input.charAt(2)))
+				else if(input.charAt(1) == ' ' && Character.isDigit(input.charAt(2)))
 				{
 					coordinates[1] = Character.getNumericValue(input.charAt(2));
 					valid_format = true;
@@ -175,9 +182,10 @@ public class Battleship
 			{
 				if(!board[i][j])
 				{
-					System.out.println("(" + i + ", " + j + ")");
+					System.out.print("(" + i + ", " + j + ") ");
 				}
 			}
+			System.out.println();
 		}
 	}
 	
