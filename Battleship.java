@@ -12,6 +12,7 @@
 import java.util.Scanner;
 public class Battleship 
 {	
+	// Once a square is marked, the value in the array is set to true.
 	public static boolean board[][] = new boolean[9][9];
 	
 	//Used to determine the type of input the user enters and if they entered valid coordinates.
@@ -74,15 +75,18 @@ public class Battleship
 					default: System.out.println("ERROR: Invalid Value Entered\n");
 				}
 				
+				// Checks if next character is a letter
 				if(Character.isLetter(input.charAt(1)))
 				{
 					System.out.println("ERROR: Invalid Format\n");
 				}
+				// Checks if the next character is a digit
 				else if(Character.isDigit(input.charAt(1)))
 				{
 					coordinates[1] = Character.getNumericValue(input.charAt(1));
 					valid_format = true;
 				}
+				//Checks if the two charcters are an empty space and a digit
 				else if(input.charAt(1) == ' ' && Character.isDigit(input.charAt(2)))
 				{
 					coordinates[1] = Character.getNumericValue(input.charAt(2));
@@ -96,6 +100,7 @@ public class Battleship
 			else if(Character.isDigit(input.charAt(0)))
 			{
 				coordinates[0] = Character.getNumericValue(input.charAt(0));
+				// Checks if the next charcter is either a comma or an empty space
 				if(input.charAt(1) == ',' || input.charAt(1) == ' ')
 				{
 					if(Character.isDigit(input.charAt(2)))
@@ -124,11 +129,12 @@ public class Battleship
 			}
 		}
 		System.out.println("Coordinates Accecpted\n");
+		// Sets the entered coordinates to true.
 		board[coordinates[0]][coordinates[1]] = true;
 		return coordinates;
 	}
 	
-	//Used to find and print the squares that are edge adjacent to the given point.
+	//Used to find and print the squares that are edge adjacent to the given point.  Sets the adjacent squares to true.
 	public static void edge_Adjacency(int[] coordinates)
 	{
 		System.out.println("Squares Edge Adjacenct to (" + coordinates[0] + ", " + coordinates[1] + "):");
@@ -150,7 +156,7 @@ public class Battleship
 		}
 	}
 	
-	//Used to find and print the squares that are corner adjacent to the given point. 
+	//Used to find and print the squares that are corner adjacent to the given point.  Sets the adjacent squares to true.
 	public static void corner_Adjacency(int[] coordinates)
 	{
 		System.out.println("Squares Corner Adjacent to (" + coordinates[0] + ", " + coordinates[1] + "):");
@@ -172,7 +178,7 @@ public class Battleship
 		}
 	}
 	
-	// Prints out all of the squares that are not adjacent to the given point.
+	// Prints out all of the squares that are not adjacent to the given point, false.
 	public static void non_Adjacency(int[] coordinates)
 	{
 		System.out.println("Squares Not Adjacent to (" + coordinates[0] + ", " + coordinates[1] + "):");
