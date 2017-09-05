@@ -128,7 +128,7 @@ public class Battleship
 					System.out.println("ERROR: Invalid Values Entered");
 			}
 		}
-		System.out.println("Coordinates Accecpted\n");
+		System.out.println("Coordinates Accepted\n");
 		// Sets the entered coordinates to true.
 		board[coordinates[0]][coordinates[1]] = true;
 		return coordinates;
@@ -137,7 +137,7 @@ public class Battleship
 	//Used to find and print the squares that are edge adjacent to the given point.  Sets the adjacent squares to true.
 	public static void edge_Adjacency(int[] coordinates)
 	{
-		System.out.println("Squares Edge Adjacenct to (" + coordinates[0] + ", " + coordinates[1] + "):");
+		System.out.println("Squares Edge Adjacent to (" + coordinates[0] + ", " + coordinates[1] + "):");
 		
 		int[][] adjacent = {
 							{coordinates[0] - 1, coordinates[1]},	// Left
