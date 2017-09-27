@@ -1,4 +1,12 @@
-
+/*
+ * Andrew Madrid
+ * CS 3331 - Advanced Object-Oriented Programming
+ * Assignment 3 - UML Class Diagram
+ * Fall 2017
+ * Purpose:
+ * 	This is the Round class from the diagram.  It includes all of the attributes
+ * 	and methods.
+ */
 public class Round 
 {
 	public int number;

@@ -1,3 +1,12 @@
+/*
+ * Andrew Madrid
+ * CS 3331 - Advanced Object-Oriented Programming
+ * Assignment 3 - UML Class Diagram
+ * Fall 2017
+ * Purpose:
+ * 	This is the Board class from the diagram.  It includes all of the attributes
+ * 	and methods as well as the appropriate associations.
+ */
 import java.util.HashSet;
 import java.util.Set;
 public class Board 
